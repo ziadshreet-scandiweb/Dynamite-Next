@@ -5,8 +5,33 @@ import styles from "./page.module.css";
 import CountryModal from "./CountryModal";
 import { useState } from "react";
 
+interface HeroBannerDto {
+  __typename: "HeroBannerDto";
+  name: string;
+  buttonText: string;
+}
+
+interface HeaderBannerDto {
+  __typename: "HeaderBannerDto";
+  garageLogo: string;
+  garageAltText: string;
+  dynamiteLogo: string;
+  dynamiteAltText: string;
+  ctaUrl: string;
+  text?: string;
+  countrySwitchHeading: string;
+  countrySwitch: Array<{
+    countryName: string;
+    flagIcon: string;
+  }>;
+}
+
+type HeroBannerDtoType = HeroBannerDto;
+type HeaderBannerDtoType = HeaderBannerDto;
+type MainContentType = HeroBannerDtoType | HeaderBannerDtoType;
+
 interface LandingPageProps {
-  mainContent: any[];
+  mainContent: MainContentType[];
 }
 
 const LandingPage = ({ mainContent }: LandingPageProps) => {
