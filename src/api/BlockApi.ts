@@ -18,6 +18,22 @@ export async function fetchMainContent() {
             startPage {
               mainContent {
                 __typename
+                  ...on HeaderBannerDto {
+                  countrySwitchHeading
+                  countrySwitch {
+                    flagIcon
+                    countryName
+                    link
+                  }
+                  text
+                  ctaUrl
+                  garageLogo
+                  garageAltText
+                  garageURL
+                  dynamiteLogo
+                  dynamiteAltText
+                  dynamiteUrl
+                }
                 ... on HeroBannerDto {
                   buttonText
                   identifier
@@ -29,9 +45,6 @@ export async function fetchMainContent() {
                     text
                     color
                   }            
-                }
-                ... on TeaserBlockDto {
-                  text
                 }
               }
             }
