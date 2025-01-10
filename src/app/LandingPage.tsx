@@ -309,7 +309,7 @@ const LandingPage = ({ mainContent }: LandingPageProps) => {
 {heroBanner.map((item, index) => (
   <div key={index} className={styles.heroBanner}>
     <img
-      src={`${ '/images/bg2.webp'}`}
+      src={`http://scandiweb-optimizely.runasp.net${item.mobileImage}`} //wdadawd
       alt={item.name}
     />
     <div className={styles.heroContent}>
