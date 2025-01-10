@@ -309,7 +309,7 @@ const LandingPage = ({ mainContent }: LandingPageProps) => {
 {heroBanner.map((item, index) => (
   <div key={index} className={styles.heroBanner}>
     <img
-      src={`${ '/images/bg2.webp'}`} // Path to your image in the public folder
+      src={`${ '/images/bg2.webp'}`}
       alt={item.name}
     />
     <div className={styles.heroContent}>
@@ -317,11 +317,11 @@ const LandingPage = ({ mainContent }: LandingPageProps) => {
   <div>
     {/* First paragraph alone */}
     <p className="firstParagraph"style={{
-      fontSize: '1.997vw',       // Ensures font size is responsive based on viewport width
-      textAlign: 'center',       // Centers text within the div
-      lineHeight: '1',           // Adjusts the line height to be compact
-      margin: '0',               // Removes any default margins
-      fontWeight: 'bold'         // Applies bold font styling
+      fontSize: '1.997vw',     
+      textAlign: 'center',     
+      lineHeight: '1',          
+      margin: '0',               
+      fontWeight: 'bold'         
     }}>
       <span>{item.texts[0].text}</span>
     </p>
