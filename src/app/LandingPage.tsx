@@ -109,6 +109,22 @@ interface CategoriesDto {
     buttonTextColor: string;
   }>;
 }
+interface SliderDto {
+  __typename: "SliderDto";
+  text: string;
+  identifier: string;
+  button: Array<{
+    text: string;
+    color: string;
+    link: string;
+    position: number;
+    textColor: string;
+  }>;
+  image: Array<{
+    image: string;
+    imageAltText: string;
+  }>;
+}
 
 
 // Combine content types
@@ -117,7 +133,8 @@ type MainContentType =
   | HeaderBannerDto
   | MainNavigationDto
   | FooterDto
-  | CategoriesDto;
+  | CategoriesDto
+  |SliderDto  ;
 
 
 interface LandingPageProps {
@@ -146,6 +163,9 @@ const LandingPage = ({ mainContent }: LandingPageProps) => {
   const categoriesData = mainContent.filter(
     (item) => item.__typename === "CategoriesDto"
   ) as CategoriesDto[];
+  const sliderData = mainContent.find(
+    (item) => item.__typename === "SliderDto"
+  ) as SliderDto | undefined;
   
   const handleMenuClick = (index: number) => {
     setActiveMenu(index === activeMenu ? null : index);
@@ -373,6 +393,37 @@ const LandingPage = ({ mainContent }: LandingPageProps) => {
   </div>
 ))}
 
+{/* Slider Section */}
+{sliderData && (
+  <div className={styles.sliderSection}>
+    {sliderData.image.map((slide, index) => (
+      <div
+        key={index}
+        className={styles.sliderItem}
+        style={{
+          backgroundImage: `url(http://scandiweb-optimizely.runasp.net${slide.image})`,
+        }}
+      >
+        <div className={styles.sliderContent}>
+          <h2>{sliderData.text}</h2>
+          {sliderData.button.map((btn, btnIndex) => (
+            <a
+              key={btnIndex}
+              href={btn.link}
+              className={styles.sliderButton}
+              style={{
+                backgroundColor: btn.color,
+                color: btn.textColor,
+              }}
+            >
+              {btn.text}
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+)}
 
 
 </main>

@@ -14,11 +14,11 @@ export async function fetchMainContent() {
     },
     body: JSON.stringify({
       query: `
-        query {
+       query {
   startPage {
     mainContent {
       __typename
-      ...on HeaderBannerDto {
+      ... on HeaderBannerDto {
         countrySwitchHeading
         countrySwitch {
           flagIcon
@@ -74,32 +74,32 @@ export async function fetchMainContent() {
             column1 {
               __typename
               ... on MainNavigationItemDto {
-                level 
-                label 
+                level
+                label
                 url
               }
             }
             column2 {
               __typename
               ... on MainNavigationItemDto {
-                level 
-                label 
+                level
+                label
                 url
               }
             }
             column3 {
               __typename
               ... on MainNavigationItemDto {
-                level 
-                label 
+                level
+                label
                 url
               }
             }
             column4 {
               __typename
               ... on MainNavigationItemDto {
-                level 
-                label 
+                level
+                label
                 url
               }
             }
@@ -117,7 +117,7 @@ export async function fetchMainContent() {
           buttonTextColor
         }
       }
-      ...on FooterDto {
+      ... on FooterDto {
         footerEmailBlock {
           footerEmail
           footerEmailButtonText
@@ -170,9 +170,25 @@ export async function fetchMainContent() {
           footerBottomButtonTextColor
         }
       }
+      ... on SliderDto {
+        text
+        identifier
+        button {
+          text
+          color
+          link
+          position
+          textColor
+        }
+        image {
+          image
+          imageAltText
+        }
+      }
     }
   }
 }
+
 
 
         `,

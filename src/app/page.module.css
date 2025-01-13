@@ -682,3 +682,62 @@ a.secondary {
   border-radius: 4px;
   text-transform: uppercase;
 }
+
+
+
+
+/* Slider Section Styles */
+.sliderSection {
+  margin-top: 20px;
+  width: 100%;
+  height: 100vh; /* Adjust based on design needs */
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black; /* Default background in case no image loads */
+}
+
+.sliderItem {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sliderContent {
+  z-index: 1; /* Ensures the content is above the image */
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.sliderContent h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.sliderButton {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sliderButton:hover {
+  background-color: white;
+  color: black;
+}
